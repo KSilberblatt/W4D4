@@ -9,6 +9,16 @@
   </head>
 
   <body>
+    <header>
+      <% if current_user.logged_in? %>
+        <%= current_user[user_name] %>
+        <button type="button" name="<%= logout! %>"></button>
+      <% else %>
+    <!-- button check -->
+        <button type="button" name="<%= login!(current_user) %>"></button>
+      <% end %>
+    </header>
+
     <%= yield %>
   </body>
 </html>
